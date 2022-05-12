@@ -8,17 +8,18 @@ export const Todos = () => {
     const [todoText, setTodoText] = useState('')
     const [credentials] = useContext(CredentialsContext);
     const [filter, setFilter] = useState('uncompleted');
-
+    
     const persist = (newTodos) => {
-        fetch(`http://localhost:4000/todos`, {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-              Authorization: `Basic ${credentials.username}:${credentials.password}`
-            },
-            body: JSON.stringify(newTodos)
-          })
-    }
+      fetch(`http://localhost:4000/todos`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Basic ${credentials.username}:${credentials.password}`,
+        },
+        body: JSON.stringify(newTodos),
+      }).then(() => {});
+    };
+  
   useEffect(() => {
     fetch(`http://localhost:4000/todos`, {
       method: "GET",
@@ -48,6 +49,7 @@ export const Todos = () => {
       persist(newTodoList);
     };
     const getTodos = () => {
+      
       return todos.filter((todo) =>
         filter === "completed" ? todo.checked : !todo.checked
       );
@@ -56,10 +58,10 @@ export const Todos = () => {
     const changeFilter = (newFilter) => {
       setFilter(newFilter);
     };
-
-  return (
-    <div>
-      <select value={filter} onChange={(e) => changeFilter(e.target.value)}>
+  
+    return (
+      <div>
+        <select value={filter} onChange={(e) => changeFilter(e.target.value)}>
         <option value="completed">Completed</option>
         <option value="uncompleted">Uncompleted</option>
       </select>
