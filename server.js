@@ -18,7 +18,7 @@ const userSchema = new mongoose.Schema({
 const User = mongoose.model("User", userSchema);
 
 const todosSchema = new mongoose.Schema({
-   userId: mongoose.Schema.ObjectId,
+  userId: mongoose.Schema.ObjectId,
   todos: [
     {
       checked: Boolean,
