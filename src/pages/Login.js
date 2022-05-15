@@ -43,7 +43,7 @@ export default function Login() {
     const navigate = useNavigate()
   
     return (
-      <div>
+      <div className='login'>
         <h1>Login</h1>
         {error && <span style={{ color: "red" }}>{error}</span>}
         <form onSubmit={login}>

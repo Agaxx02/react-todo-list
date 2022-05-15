@@ -61,7 +61,7 @@ export const Todos = () => {
   };
 
   return (
-    <div>
+    <div className='todos'>
       <select value={filter} onChange={(e) => changeFilter(e.target.value)}>
         <option value="completed">Completed</option>
         <option value="uncompleted">Uncompleted</option>

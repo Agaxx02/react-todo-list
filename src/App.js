@@ -18,7 +18,10 @@ function App() {
   const credentialsState = useState(null);
 
   return (
-    <div className="App">
+    <div className="App"> 
+    <header className='header'>
+      <span>Todo List</span>
+    </header>
        <CredentialsContext.Provider value={credentialsState}>
       <BrowserRouter>
      <Routes>

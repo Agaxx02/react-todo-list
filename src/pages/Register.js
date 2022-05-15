@@ -37,7 +37,7 @@ export default function Register() {
   const navigate = useNavigate()
 
   return (
-    <div>
+    <div className='register'>
       <h1>Register</h1>
       {error && <span style={{ color: "red" }}>{error}</span>}
       <form onSubmit={register}>

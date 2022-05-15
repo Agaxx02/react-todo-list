@@ -9,13 +9,14 @@ export default function Welcome() {
 setCredentials(null)
   }
   return (
-    <div>
+    <div className='welcome'>
       {credentials && <button onClick={Logout}>Logout</button>}
-        <h1>Welcome {credentials && credentials.username}</h1>
-        {!credentials && <Link to="/register">Register</Link>}
-        <br/>
-        {!credentials && <Link to="/login">Login</Link>}
+        <h1 className='button'>Welcome {credentials && credentials.username}</h1>
+        <div className='buttonContainer'>
+        {!credentials && <Link to="/register" className='button' id='registerButton'>Register</Link>}
+        {!credentials && <Link to="/login" className='button' id='loginButton'>Login</Link>}
         {credentials && <Todos />}
+        </div>
     </div>
   )
 }
