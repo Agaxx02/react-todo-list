@@ -4,6 +4,7 @@
   font-family: 'Roboto', sans-serif;
   font-size: 10px;
   background-color: #EED3F2;
+  height: 100vh;
   
 }
 .header{
@@ -19,14 +20,14 @@
   border-radius: 7%;
   margin: 4% auto 0;
   width: 60%;
-  height: 600px;
+  height: 80vh;
   background-color: #2E282F;
 }
 .buttonContainer{
-  height: 300px;
-  margin-top: 12%;
+  height: 40vh;
+  margin-top: 13%;
 }
-#registerButton{
+#registerButton, #loginButton{
   margin: 5% auto;
   width: 35%;
   height: 50px;
@@ -51,18 +52,36 @@
   font-size: 2.5em;
   color: black;
   display: block;
-  transition: 1s;
 }
-.welcome a ::hover{
-  cursor: pointer;
+#registerButton:hover, #loginButton:hover{
+  -webkit-box-shadow: 0px 0px 23px 1px rgba(66, 68, 90, 1);
+  -moz-box-shadow: 0px 0px 23px 1px rgba(66, 68, 90, 1);
+  box-shadow: 0px 0px 23px 1px rgba(66, 68, 90, 1);
 }
 
 @media screen and (max-width: 900px) {
   .welcome{
     width: 90%;
+    margin-top: 15%;
   }
   
   .welcome h1 {
-    font-size: 3.5em;
+  font-size: 3.5em;
+  margin-bottom: 70px;
+  }
+  .button{
+    border: 5px solid #78687A;
+}
+#registerButton, #loginButton{
+  margin: 10% auto;
+  width: 50%;
+}
+.buttonContainer{
+  margin-top: 30%;
+}
+}
+@media screen and (max-width: 1500px) and (min-width:900px){
+  .buttonContainer{
+    margin-top: 30%;
   }
 }

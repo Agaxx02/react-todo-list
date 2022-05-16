@@ -45,13 +45,13 @@ export default function Login() {
     return (
       <div className='login'>
         <h1>Login</h1>
-        {error && <span style={{ color: "red" }}>{error}</span>}
+        {error && <span className='errorMessage' style={{ color: "red" }}>{error}</span>}
         <form onSubmit={login}>
-          <input
+          <input className='inputs'
            onChange={(e) => setUsername(e.target.value)}
            placeholder='username' />
           <br />
-          <input 
+          <input className='inputs'
           type='password'
           onChange={(e) => setPassword(e.target.value)}
           placeholder='password' />
