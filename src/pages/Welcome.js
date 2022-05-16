@@ -13,8 +13,8 @@ setCredentials(null)
       {credentials && <button onClick={Logout}>Logout</button>}
         <h1 className='button'>Welcome {credentials && credentials.username}</h1>
         <div className='buttonContainer'>
-        {!credentials && <Link to="/login" className='button' id='loginButton'>Login</Link>}
         {!credentials && <Link to="/register" className='button' id='registerButton'>Register</Link>}
+        {!credentials && <Link to="/login" className='button' id='loginButton'>Login</Link>}
         {credentials && <Todos />}
         </div>
     </div>

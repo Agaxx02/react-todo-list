@@ -9,6 +9,8 @@ export const Todos = () => {
   const [credentials] = useContext(CredentialsContext);
   const [filter, setFilter] = useState("uncompleted");
 
+ 
+
   const persist = (newTodos) => {
     fetch(`http://localhost:4000/todos`, {
       method: "POST",
@@ -29,17 +31,17 @@ export const Todos = () => {
       },
     })
       .then((response) => response.json())
-      .then((todos) => setTodos(todos));
+      .then((todos) => setTodos(todos.todos));
   }, []);
 
   const addTodo = (e) => {
     e.preventDefault();
     if (!todoText) return;
     const newTodo = { id: uuidv4(), checked: false, text: todoText };
-    const newTodos = [...todos, newTodo];
-    setTodos(newTodos);
+    todos = todos.push(newTodo)
+    setTodos(todos);
     setTodoText("");
-    persist(newTodos);
+    persist(todos);
   };
 
   const toggleTodo = (id) => {
@@ -51,9 +53,11 @@ export const Todos = () => {
   };
 
   const getTodos = () => {
-    return todos.filter((todo) =>
+    return  todos===null || todos===undefined ? [] :
+      todos.filter((todo) =>
       filter === "completed" ? todo.checked : !todo.checked
     );
+  
   };
 
   const changeFilter = (newFilter) => {
@@ -61,7 +65,7 @@ export const Todos = () => {
   };
 
   return (
-    <div className='todos'>
+    <div>
       <select value={filter} onChange={(e) => changeFilter(e.target.value)}>
         <option value="completed">Completed</option>
         <option value="uncompleted">Uncompleted</option>

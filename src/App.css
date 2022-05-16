@@ -19,13 +19,13 @@
   text-align: center;
   border-radius: 7%;
   margin: 4% auto 0;
-  width: 60%;
+  width: 40%;
   height: 80vh;
   background-color: #2E282F;
 }
 .buttonContainer{
   height: 40vh;
-  margin-top: 13%;
+  margin-top: 20%;
 }
 #registerButton, #loginButton{
   margin: 5% auto;
@@ -33,19 +33,22 @@
   height: 50px;
   line-height: 50px;
 }
+#loginButton{
+  width: 30%;
+}
 .button{
   background-color: #E6C7EB;
-  border: 10px solid #78687A;
+  border: 6px solid #78687A;
   border-radius: 200px;
 }
 .welcome h1{
   position: relative;
   top: 7%;
   font-size: 4.5em;
-  height: 150px;
+  height: 130px;
   width: 70%;
   margin: 5% auto 0;
-  line-height: 150px;
+  line-height: 130px;
 }
 .welcome a {
   text-decoration: none;
