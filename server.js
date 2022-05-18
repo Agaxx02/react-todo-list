@@ -102,11 +102,7 @@ app.get("/todos", async (req, res) => {
     return;
   }
   const todos = await Todos.findOne({ userId: user._id }).exec();
-  if(!todos){
-    res.json([])
-  }else{
     res.json(todos);
-  }
 });
 
 const db = mongoose.connection;
