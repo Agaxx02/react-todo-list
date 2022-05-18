@@ -8,6 +8,7 @@ export const Todos = () => {
   const [todoText, setTodoText] = useState("");
   const [credentials] = useContext(CredentialsContext);
   const [filter, setFilter] = useState("uncompleted");
+ 
 
  
 
@@ -22,7 +23,7 @@ export const Todos = () => {
     }).then(() => {});
   };
 
-  useEffect(() => {
+   useEffect(() => {
     fetch(`http://localhost:4000/todos`, {
       method: "GET",
       headers: {
@@ -53,11 +54,16 @@ export const Todos = () => {
   };
 
   const getTodos = () => {
-    return  todos===null || todos===undefined ? [] :
-      todos.filter((todo) =>
+
+    console.log(typeof todos, todos, Array.isArray(todos))
+    if(typeof todos===null){
+      setTodos([])
+      console.log(typeof todos, todos, Array.isArray(todos))
+    }else{
+      console.log(typeof todos, todos, Array.isArray(todos))
+     return  todos.filter((todo) =>
       filter === "completed" ? todo.checked : !todo.checked
-    );
-  
+    )}
   };
 
   const changeFilter = (newFilter) => {
@@ -65,7 +71,16 @@ export const Todos = () => {
   };
 
   return (
-    <div>
+    <div className='todos'>
+      <form onSubmit={addTodo}>
+        <input
+          value={todoText}
+          onChange={(e) => setTodoText(e.target.value)}
+          type="text"
+        ></input>
+        <button type="submit">Add</button>
+      </form>
+      <br />
       <select value={filter} onChange={(e) => changeFilter(e.target.value)}>
         <option value="completed">Completed</option>
         <option value="uncompleted">Uncompleted</option>
@@ -81,15 +96,6 @@ export const Todos = () => {
           <label>{todo.text}</label>
         </div>
       ))}
-      <br />
-      <form onSubmit={addTodo}>
-        <input
-          value={todoText}
-          onChange={(e) => setTodoText(e.target.value)}
-          type="text"
-        ></input>
-        <button type="submit">Add</button>
-      </form>
     </div>
   );
 }
