@@ -44,7 +44,7 @@ export default function Login() {
   
     return (
       <div className='login'>
-        <h1>Login</h1>
+        <h1 className='button'>Login</h1>
         {error && <span className='errorMessage' style={{ color: "red" }}>{error}</span>}
         <form onSubmit={login}>
           <input className='inputs'

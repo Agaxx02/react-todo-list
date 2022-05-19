@@ -27,6 +27,33 @@
   height: 40vh;
   margin-top: 20%;
 }
+.login, .register{
+  width: 50%;
+  border: 2px solid black;
+  margin: 5% auto 0;
+  height: 50vh;
+  background-color: #2E282F;
+  border-radius: 7%;
+}
+.errorMessage{
+  margin-bottom: 20px;
+  font-size: 2em;
+  display: block;
+  text-align: center;
+  
+}
+.login h1, .register h1{
+  font-size: 4em;
+  text-align: center;
+  width: 60%;
+  margin: 5% auto;
+}
+form input, form button{
+  margin: 0.5%;
+}
+form{
+  text-align: center;
+}
 #registerButton, #loginButton{
   margin: 5% auto;
   width: 35%;
@@ -43,8 +70,8 @@
 }
 .welcome h1{
   position: relative;
-  top: 7%;
   font-size: 4.5em;
+  top: 50px;
   height: 130px;
   width: 70%;
   margin: 5% auto 0;
@@ -61,8 +88,21 @@
   -moz-box-shadow: 0px 0px 23px 1px rgba(66, 68, 90, 1);
   box-shadow: 0px 0px 23px 1px rgba(66, 68, 90, 1);
 }
-
-@media screen and (max-width: 900px) {
+.todos{
+  position: relative;
+  top: -15%;
+  border-radius: 7%;
+  width: 70%;
+  margin: 0 auto;
+  height: 85%;
+}
+.todos div {
+font-size: 2.5em;
+}
+.todos form{
+  margin-top: 20px
+}
+@media screen and (max-width: 800px) {
   .welcome{
     width: 90%;
     margin-top: 15%;
@@ -83,8 +123,11 @@
   margin-top: 30%;
 }
 }
-@media screen and (max-width: 1500px) and (min-width:900px){
-  .buttonContainer{
-    margin-top: 30%;
-  }
+@media screen and (max-width: 1100px) and (min-width:800px){
+.buttonContainer{
+  margin-top: 20%;
+}
+.welcome{
+  width: 80%;
+}
 }

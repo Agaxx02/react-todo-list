@@ -38,8 +38,8 @@ export default function Register() {
 
   return (
     <div className='register'>
-      <h1>Register</h1>
-      {error && <span style={{ color: "red" }}>{error}</span>}
+      <h1 className='button'>Register</h1>
+      {error && <span className='errorMessage' style={{ color: "red" }}>{error}</span>}
       <form onSubmit={register}>
         <input
          onChange={(e) => setUsername(e.target.value)}

@@ -39,8 +39,8 @@ export const Todos = () => {
     e.preventDefault();
     if (!todoText) return;
     const newTodo = { id: uuidv4(), checked: false, text: todoText };
-    todos = todos.push(newTodo)
-    setTodos(todos);
+    const newTodos = [...todos, newTodo]
+    setTodos(newTodos);
     setTodoText("");
     persist(todos);
   };
@@ -54,13 +54,9 @@ export const Todos = () => {
   };
 
   const getTodos = () => {
-
-    console.log(typeof todos, todos, Array.isArray(todos))
     if(typeof todos===null){
       setTodos([])
-      console.log(typeof todos, todos, Array.isArray(todos))
     }else{
-      console.log(typeof todos, todos, Array.isArray(todos))
      return  todos.filter((todo) =>
       filter === "completed" ? todo.checked : !todo.checked
     )}
@@ -71,7 +67,7 @@ export const Todos = () => {
   };
 
   return (
-    <div className='todos'>
+    <div className='todos button'>
       <form onSubmit={addTodo}>
         <input
           value={todoText}
@@ -87,7 +83,8 @@ export const Todos = () => {
       </select>
 
       {getTodos().map((todo) => (
-        <div key={todo.id}>
+        <div  className='todotems'
+        key={todo.id}>
           <input
             checked={todo.checked}
             onChange={() => toggleTodo(todo.id)}
