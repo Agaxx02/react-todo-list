@@ -2,14 +2,26 @@ const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const app = express();
-const port = 4000;
+
+
+require('dotenv').config({path: './config/.env'})
+
+const connectDB = async () => {
+  try {
+    const conn = await mongoose.connect(process.env.DB_STRING, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    })
+
+    console.log(`MongoDB Connected: ${conn.connection.host}`)
+  } catch (err) {
+    console.error(err)
+    process.exit(1)
+  }
+}
+connectDB()
 
 const ObjectId = require("mongoose").Types.ObjectId;
-
-mongoose.connect("mongodb://localhost/todo-list", {
-  useUnifiedTopology: true,
-  useNewUrlParser: true,
-});
 
 const userSchema = new mongoose.Schema({
   username: String,
@@ -108,7 +120,7 @@ app.get("/todos", async (req, res) => {
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error:"));
 db.once("open", function () {
-  app.listen(port, () => {
-    console.log(`Example app listening at http://localhost:${port}`);
+  app.listen(process.env.PORT || PORT, () => {
+    console.log(`Server running on ${process.env.PORT}`);
   });
 });
