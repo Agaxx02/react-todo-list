@@ -14,7 +14,8 @@ export default function Login() {
     const [password, setPassword] = useState('')
     const [error, setError] = useState("");
     const [credentials, setCredentials] = useContext(CredentialsContext);
-  
+    const navigate = useNavigate()
+    
     const login = (e) => {
       e.preventDefault();
       fetch(`http://localhost:4000/login`, {
@@ -40,7 +41,6 @@ export default function Login() {
       });
     }
   
-    const navigate = useNavigate()
   
     return (
       <div className='login'>

@@ -9,6 +9,8 @@ export default function Register() {
   const [error, setError] = useState("");
   const [credentials, setCredentials] = useContext(CredentialsContext);
 
+const navigate = useNavigate()
+
   const register = (e) => {
     e.preventDefault();
     fetch(`http://localhost:4000/register`, {
@@ -33,9 +35,6 @@ export default function Register() {
       setError(error.message);
     });
   }
-
-  const navigate = useNavigate()
-
   return (
     <div className='register'>
       <h1 className='button'>Register</h1>
