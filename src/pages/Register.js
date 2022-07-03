@@ -7,7 +7,7 @@ export default function Register() {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState("");
-  const [credentials, setCredentials] = useContext(CredentialsContext);zs
+  const [credentials, setCredentials] = useContext(CredentialsContext);
 
   const register = (e) => {
     e.preventDefault();
