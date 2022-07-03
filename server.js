@@ -53,6 +53,12 @@ app.post("/register", async (req, res) => {
       message: "user already exists",
     });
     return;
+  }else if(password.length <8 || password.toLowerCase()===password){
+    res.status(500);
+    res.json({
+      message: "Password has to be at least 8 characters long and contain at least one uppercase letter",
+    });
+    return;
   }
   await User.create({ username, password });
   res.json({

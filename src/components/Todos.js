@@ -83,7 +83,7 @@ export const Todos = () => {
       </select>
 
       {getTodos().map((todo) => (
-        <div  className='todotems'
+        <div 
         key={todo.id}>
           <input
             checked={todo.checked}
