@@ -7,11 +7,11 @@ export default function Register() {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState("");
-  const [credentials, setCredentials] = useContext(CredentialsContext);
+  const [credentials, setCredentials] = useContext(CredentialsContext);zs
 
   const register = (e) => {
     e.preventDefault();
-    fetch(`https://todolist-react01.herokuapp.com/register`, {
+    fetch(`http://localhost:4000/register`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

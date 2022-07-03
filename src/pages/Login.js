@@ -17,7 +17,7 @@ export default function Login() {
   
     const login = (e) => {
       e.preventDefault();
-      fetch(`https://todolist-react01.herokuapp.com/login`, {
+      fetch(`http://localhost:4000/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

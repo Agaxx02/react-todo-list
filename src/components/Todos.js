@@ -13,7 +13,7 @@ export const Todos = () => {
  
 
   const persist = (newTodos) => {
-    fetch(`https://todolist-react01.herokuapp.com/todos`, {
+    fetch(`http://localhost:4000/todos`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -24,7 +24,7 @@ export const Todos = () => {
   };
 
    useEffect(() => {
-    fetch(`https://todolist-react01.herokuapp.com/todos`, {
+    fetch(`http://localhost:4000/todos`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
