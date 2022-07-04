@@ -13,7 +13,7 @@ const navigate = useNavigate()
 
   const register = (e) => {
     e.preventDefault();
-    fetch(`http://localhost:4000/register`, {
+    fetch(`https://todolist-react01.herokuapp.com/register`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
